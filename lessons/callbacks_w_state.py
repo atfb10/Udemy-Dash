@@ -12,8 +12,6 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 
-# read in data
-df = pd.read_csv('wheels.csv')
 
 # Create app
 app = dash.Dash()

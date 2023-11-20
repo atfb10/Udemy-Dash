@@ -18,9 +18,10 @@ df = pd.read_csv('wheels.csv')
 # Create app
 app = dash.Dash()
 
-def encode_img(img_file):
-    encoded = base64.b64encode(open(img_file, 'rb').read())
-    return f'data:image/png;base64{encoded.decode()}'
+def encode_img(image_file):
+    with open(image_file, 'rb') as f:
+        encoded = base64.b64encode(f.read())
+    return 'data:image/png;base64,{}'.format(encoded.decode())
 
 app.layout = html.Div([
     dcc.RadioItems(id='wheels',

@@ -14,16 +14,16 @@ import pandas as pd
 import numpy as np
 import base64
 
+def encode_image(image_file):
+    with open(image_file, 'rb') as f:
+        encoded = base64.b64encode(f.read())
+    return 'data:image/png;base64,{}'.format(encoded.decode())
+
 # read in data
 df = pd.read_csv('wheels.csv')
 
 # Create app
 app = dash.Dash()
-
-def encode_image(image_file):
-    with open(image_file, 'rb') as f:
-        encoded = base64.b64encode(f.read())
-    return 'data:image/png;base64,{}'.format(encoded.decode())
 
 app.layout = html.Div([
     html.Div(dcc.Graph(id='wheels-plot',

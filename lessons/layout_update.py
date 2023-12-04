@@ -8,7 +8,7 @@ from dash.dependencies import (
     Input,
     Output
 )
-
+import plotly.graph_objs as go 
 app = dash.Dash()
 
 
